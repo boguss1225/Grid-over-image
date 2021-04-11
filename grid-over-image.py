@@ -13,7 +13,9 @@ print("Enter image folder path: ")
 TARGET_PATH = input()
 
 #Set Grid Interval Here
-dx, dy = 128,128
+dx = int(input("Set Grid Interval dx: "))
+dy = int(input("Set Grid Interval dy: "))
+#dx, dy = 128,128
 
 #Set dpi
 dpi = 100
