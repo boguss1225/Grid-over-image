@@ -12,6 +12,11 @@ print("-------------------------------------------")
 print("Enter image folder path: ")
 TARGET_PATH = input()
 
+#Set Grid Origin
+
+x = int(input("Set origin on x-axis: "))
+y = int(input("Set origin on y-axis: "))
+
 #Set Grid Interval Here
 dx, dy = 128,128
 
@@ -40,15 +45,15 @@ for img in loaded_images:
     
     # set grid color 
     grid_color = [255,255,255]
-    img[:,::dy,:] = grid_color
-    img[::dx,:,:] = grid_color
+    img[x:,y::dy,:] = grid_color
+    img[x::dx,y:,:] = grid_color
     loaded_images[cnt] = img
     cnt=cnt+1
     #plt.imshow(img)
     #plt.show()
 
 # Save grided image
-cnt=0
+cnt=0   
 for filename in listdir(TARGET_PATH):
     #save
     if not(filename.startswith('.') or os.path.isdir(TARGET_PATH + '/' +filename)):
